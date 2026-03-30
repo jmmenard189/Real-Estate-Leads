@@ -15,7 +15,7 @@ export default function Privacy() {
         <div className="prose prose-slate dark:prose-invert max-w-none">
           <p>Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
           
-          <p>At {siteConfig.name} ("we", "our", or "us"), we respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website.</p>
+          <p>We ("we", "our", or "us") respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website.</p>
 
           <h2>1. Information We Collect</h2>
           <p>We may collect personal identification information that you voluntarily provide to us when you fill out lead forms, contact forms, or register for updates. This includes:</p>
@@ -49,10 +49,9 @@ export default function Privacy() {
           <h2>6. Contact Us</h2>
           <p>If you have questions about this Privacy Policy, please contact us at:</p>
           <p>
-            <strong>{siteConfig.name}</strong><br />
-            Licensed with {siteConfig.brokerage}<br />
-            Email: {siteConfig.email}<br />
-            Phone: {siteConfig.phone}
+            <strong>GTA Home Search</strong><br />
+            {siteConfig.email && <>Email: {siteConfig.email}<br /></>}
+            {siteConfig.phone && <>Phone: {siteConfig.phone}</>}
           </p>
         </div>
       </div>

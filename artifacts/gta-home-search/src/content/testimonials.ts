@@ -3,7 +3,7 @@ export const testimonials = [
     id: 1,
     name: "Sarah & Michael T.",
     location: "Bought in Markham",
-    quote: "Working with the My GTA Home Search team made finding our dream home in Markham so much easier. Their local knowledge was invaluable in navigating a very competitive market.",
+    quote: "Working with the team made finding our dream home in Markham so much easier. Their local knowledge was invaluable in navigating a very competitive market.",
     role: "First-time Buyers",
   },
   {
@@ -29,4 +29,4 @@ export const testimonials = [
   }
 ];
 
-export const disclaimer = "Placeholder testimonials - pending brokerage review";
+export const disclaimer = "Placeholder testimonials — replace with verified client testimonials before launch.";

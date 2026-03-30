@@ -6,5 +6,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const getDocumentTitle = (pageTitle: string) => {
-  return `${pageTitle} | My GTA Home Search`;
+  return `${pageTitle} | GTA Home Search`;
 };

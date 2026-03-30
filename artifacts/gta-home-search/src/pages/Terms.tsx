@@ -18,8 +18,8 @@ export default function Terms() {
           <h2>1. Acceptance of Terms</h2>
           <p>By accessing and using this website ({siteConfig.url}), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by these terms, please do not use this website.</p>
 
-          <h2>2. Brokerage Identity & Affiliation</h2>
-          <p>This website is operated by independent sales representatives licensed with <strong>{siteConfig.brokerage}</strong>. The brokerage is independently owned and operated. All content and advertising on this website are subject to brokerage review and approval.</p>
+          <h2>2. Regulatory Compliance</h2>
+          <p>This website is operated by licensed real estate professionals. All content and advertising on this website are subject to applicable regulatory review and approval in accordance with Ontario real estate marketing standards.</p>
           
           <h2>3. No MLS/IDX Data Disclaimer</h2>
           <p>This website is an independent lead generation platform. It is <strong>not</strong> the official website of the Toronto Regional Real Estate Board (TRREB), the Canadian Real Estate Association (CREA), or the Ontario Real Estate Association (OREA). Property listings and search features provided on this site are for informational purposes only and do not constitute a direct live feed from the MLS® system unless explicitly stated.</p>
@@ -31,7 +31,7 @@ export default function Terms() {
           <p>The content provided on this website is for general informational purposes only. It is not intended to provide specific legal, accounting, financial, or tax advice. You should consult with appropriate professionals before making any real estate transaction decisions.</p>
 
           <h2>6. Limitation of Liability</h2>
-          <p>In no event shall {siteConfig.name}, its affiliates, or {siteConfig.brokerage} be liable for any direct, indirect, incidental, consequential, or punitive damages arising out of your access to, or use of, the site and its content.</p>
+          <p>In no event shall this website, its operators, or affiliates be liable for any direct, indirect, incidental, consequential, or punitive damages arising out of your access to, or use of, the site and its content.</p>
 
           <h2>7. Contact</h2>
           <p>For questions regarding these terms, please contact us at {siteConfig.email}.</p>

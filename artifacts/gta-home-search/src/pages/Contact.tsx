@@ -52,8 +52,7 @@ export default function Contact() {
                   <div>
                     <p className="font-semibold text-foreground">Office</p>
                     <p className="text-lg text-muted-foreground mt-1 leading-relaxed">
-                      {siteConfig.address}<br />
-                      <span className="text-sm font-medium">{siteConfig.brokerage}</span>
+                      {siteConfig.address || "GTA, Ontario"}
                     </p>
                   </div>
                 </div>

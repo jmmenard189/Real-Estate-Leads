@@ -49,17 +49,11 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Brokerage & Legal */}
+          {/* Social & Connect */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Brokerage</h4>
-            <div className="bg-muted p-4 rounded-lg">
-              <p className="font-serif font-bold text-lg mb-2">{siteConfig.brokerage}</p>
-              <p className="text-xs text-muted-foreground leading-tight">
-                Independently Owned and Operated.
-              </p>
-            </div>
+            <h4 className="font-semibold text-foreground">Connect</h4>
+            <p className="text-sm text-muted-foreground">Follow us for GTA market updates, new listings, and community news.</p>
             <div className="flex gap-4 pt-2">
-              {/* Social placeholders */}
               <a href={siteConfig.socialLinks.instagram} className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">IN</a>
               <a href={siteConfig.socialLinks.facebook} className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">FB</a>
             </div>

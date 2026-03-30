@@ -25,11 +25,8 @@ export function Navbar() {
         <div className="flex h-20 items-center justify-between">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2">
-              <div className="h-8 w-8 bg-primary rounded-sm flex items-center justify-center text-primary-foreground font-serif font-bold text-lg">
-                M
-              </div>
-              <span className="font-serif text-xl font-bold tracking-tight text-foreground hidden sm:block">
-                My GTA Home Search
+              <span className="font-serif text-xl font-bold tracking-tight text-foreground">
+                GTA Home Search
               </span>
             </Link>
           </div>

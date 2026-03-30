@@ -1,15 +1,16 @@
 openapi: 3.1.0
 info:
-  # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: API specification for GTA Home Search
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: leads
+    description: Lead capture operations
 paths:
   /healthz:
     get:
@@ -24,6 +25,37 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /leads:
+    post:
+      operationId: submitLead
+      tags: [leads]
+      summary: Submit a lead
+      description: Submit a lead from any form on the site
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LeadSubmission"
+      responses:
+        "200":
+          description: Lead submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeadSubmissionResponse"
+        "400":
+          description: Invalid submission
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +65,65 @@ components:
           type: string
       required:
         - status
-
+    LeadSubmission:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Full name of the lead
+        email:
+          type: string
+          format: email
+          description: Email address
+        phone:
+          type: string
+          description: Phone number
+        message:
+          type: string
+          description: Optional message
+        source:
+          type: string
+          description: Source page (e.g. home, pickering, seller, buyer)
+        leadType:
+          type: string
+          enum: [buyer, seller, general]
+          description: Type of lead
+        address:
+          type: string
+          description: Property address (for seller leads)
+        areaOfInterest:
+          type: string
+          description: Area of interest (for buyer leads)
+        timeline:
+          type: string
+          description: Buying or selling timeline
+        budget:
+          type: string
+          description: Budget range
+      required:
+        - name
+        - email
+        - source
+        - leadType
+    LeadSubmissionResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+        leadId:
+          type: string
+      required:
+        - success
+        - message
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+      required:
+        - error
+        - message

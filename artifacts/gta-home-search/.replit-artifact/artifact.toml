@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "GTA Home Search"
+version = "1.0.0"
+id = "artifacts/gta-home-search"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22068
+
+[services.development]
+run = "pnpm --filter @workspace/gta-home-search run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/gta-home-search", "run", "build" ]
+publicDir = "artifacts/gta-home-search/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22068"
+BASE_PATH = "/"

@@ -1,0 +1,68 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "P9f0JIxK8yW9EoZnTx173"
+uri = "file://artifacts/gta-home-search/public/images/home-hero.jpg"
+type = "image"
+title = "beautiful luxury home exterior toronto"
+
+[[outputs]]
+id = "f7a5azhjJDZUs8Wp7HcBy"
+uri = "file://artifacts/gta-home-search/public/images/search-bg.jpg"
+type = "image"
+title = "modern toronto condo interior"
+
+[[outputs]]
+id = "HjunfttivaZHFyADhlOkC"
+uri = "file://artifacts/gta-home-search/public/images/seller-bg.jpg"
+type = "image"
+title = "beautiful living room staging"
+
+[[outputs]]
+id = "8ApSPpeppY8Jo_xISS1FJ"
+uri = "file://artifacts/gta-home-search/public/images/pickering.jpg"
+type = "image"
+title = "lakefront park suburban homes"
+
+[[outputs]]
+id = "ior5ogTpmFmCCBB5kuX7B"
+uri = "file://artifacts/gta-home-search/public/images/ajax.jpg"
+type = "image"
+title = "family home green park suburban"
+
+[[outputs]]
+id = "QwsKDdjMj207pcB-sWWVQ"
+uri = "file://artifacts/gta-home-search/public/images/whitby.jpg"
+type = "image"
+title = "historic downtown street canada"
+
+[[outputs]]
+id = "lqLsqzCp0kjp3dxkg5Se_"
+uri = "file://artifacts/gta-home-search/public/images/markham.jpg"
+type = "image"
+title = "modern tech city suburban homes"
+
+[[outputs]]
+id = "jSh_jXulGbjli3OTW2mia"
+uri = "file://artifacts/gta-home-search/public/images/vaughan.jpg"
+type = "image"
+title = "luxury suburban homes new developments"
+
+[[outputs]]
+id = "l224b0NAF23mZkyjHHhBj"
+uri = "file://artifacts/gta-home-search/public/images/richmond-hill.jpg"
+type = "image"
+title = "prestigious luxury home large lot"
+
+[[outputs]]
+id = "kryjHnPLh9La7Fy8TQ6I6"
+uri = "file://artifacts/gta-home-search/public/images/north-york.jpg"
+type = "image"
+title = "urban high rise condos and homes"
+
+[[outputs]]
+id = "IHSG6T3OPZ7vL6lniCK0e"
+uri = "file://artifacts/gta-home-search/public/images/scarborough.jpg"
+type = "image"
+title = "waterfront bluffs and homes"

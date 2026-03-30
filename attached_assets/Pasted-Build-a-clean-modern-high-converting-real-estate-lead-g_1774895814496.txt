@@ -1,0 +1,257 @@
+Build a clean, modern, high-converting real estate lead generation website for the domain mygtahomeseach.com. This is not a brokerage vanity site and not a personal branding site first. The primary goal is to generate buyer and seller leads in the Greater Toronto Area, especially for Pickering, Ajax, Whitby, Markham, Vaughan, Richmond Hill, North York, and Scarborough.
+
+Use a professional, trustworthy, polished design that feels premium and fast. The site should be mobile-first, SEO-friendly, and built for conversion. The design should appeal to home buyers and sellers in the GTA. Make it feel established, local, and credible.
+
+Tech requirements:
+- Build in a way that works well inside Replit
+- Use a modern stack suitable for deployment
+- Prioritize speed, clarity, and easy editing
+- Create a scalable structure so more area pages can be added later
+- Include reusable components for listings, lead forms, area pages, testimonials, CTA banners, and FAQ sections
+- Make all text editable
+- Include placeholder images that can easily be swapped out
+- Use clean routing and page structure
+
+Branding and compliance:
+- Brokerage is RE/MAX West Realty
+- Follow Ontario real estate marketing standards in a conservative way
+- Avoid false claims, misleading statements, fake sold data, fake testimonials, or anything that could create RECO or TRREB compliance issues
+- Include clear brokerage identification in footer and contact areas
+- Add placeholder compliance text where needed for brokerage review
+- Do not scrape or display protected MLS/IDX data unless connected through an approved IDX provider
+- Structure the site so IDX can be added later without rebuilding the site
+
+Primary site goals:
+1. Capture buyer leads
+2. Capture seller leads
+3. Rank for local SEO landing pages
+4. Funnel all leads into Follow Up Boss
+5. Make it easy to add future IDX integration
+6. Encourage registration and inquiry without making the site feel spammy
+
+Main pages to build:
+- Home
+- Search page placeholder for future IDX integration
+- Communities / Area pages index
+- Individual area pages for:
+  - Pickering
+  - Ajax
+  - Whitby
+  - Markham
+  - Vaughan
+  - Richmond Hill
+  - North York
+  - Scarborough
+- Home valuation / seller landing page
+- Buyer landing page
+- Contact page
+- About / brokerage info page
+- Privacy policy page
+- Terms / disclaimer page
+
+Homepage requirements:
+- Strong hero section with headline, subheadline, search-style CTA, and lead form
+- Main CTA options:
+  - Search Homes
+  - Get Home Value
+  - Book a Call
+- Section for featured communities
+- Section for buyers
+- Section for sellers
+- Section explaining the process
+- Testimonials section with placeholder testimonials clearly marked as placeholders for approval
+- FAQ section
+- Lead capture strip throughout page
+- Final CTA section before footer
+- Footer with brokerage info, contact info, quick links, compliance placeholders, and social icons
+
+Hero copy direction:
+Create strong real estate conversion copy for the GTA that sounds confident, clear, and helpful. Avoid cheesy or overly aggressive language. Emphasize local expertise, easy home search, market guidance, and simple next steps.
+
+Area pages:
+Each area page should be unique and SEO-structured, not duplicate content. Each page should include:
+- Custom hero section
+- Area overview
+- Why people live there
+- Housing styles / who it suits
+- Local amenities and lifestyle
+- Schools, parks, transit, and shopping sections
+- Buyer CTA
+- Seller CTA
+- FAQ section
+- Contact / lead form
+- Internal links to related area pages
+- Placeholder map section
+- Optional featured listings placeholder section for future IDX
+
+Make the area pages feel useful for SEO and for real people. Keep tone local, practical, and conversion-focused.
+
+Search page:
+Create a polished “Search GTA Homes” page that acts as a placeholder until IDX is added.
+Include:
+- Search interface mockup
+- Filters such as city, price range, property type, beds, baths
+- CTA to register for alerts
+- CTA to request off-market and coming soon opportunities
+- Notice that full live listings search will be available through connected IDX feed
+- Design this page so future IDX can drop in cleanly
+
+Seller / home valuation page:
+This page should be built to generate listing leads.
+Include:
+- Strong headline about finding out what a home may be worth
+- Benefits of getting a valuation
+- Easy form with name, email, phone, address, timeline, and comments
+- Section explaining local pricing strategy
+- Section on marketing approach
+- FAQ section
+- Strong CTA to request a home evaluation
+
+Buyer page:
+This page should generate consultation and home search leads.
+Include:
+- Benefits of working with a local GTA expert
+- Short explanation of buying process
+- CTA for custom home search
+- CTA for neighborhood guidance
+- CTA for booking a buyer consultation
+- FAQ section
+- Lead form
+
+Lead forms:
+Every major page should have a form.
+Forms should include some combination of:
+- Name
+- Email
+- Phone
+- Area of interest
+- Buying / selling timeline
+- Budget range
+- Message
+- Address field on seller pages
+Add strong but friendly CTA button text like:
+- Get Started
+- Book My Call
+- Send Me Listings
+- Get My Home Value
+
+CRM integration:
+Set the project up so forms can connect into Follow Up Boss.
+Create an abstraction layer for lead submission so the form backend can later send leads to:
+- Follow Up Boss API
+- Zapier
+- webhook endpoint
+- email fallback
+Include clear comments in code showing where Follow Up Boss API keys or webhook URLs go.
+Tag leads by source page and form type. Example tags:
+- mygtahomeseach-home
+- mygtahomeseach-pickering
+- mygtahomeseach-seller
+- mygtahomeseach-buyer
+
+Admin/editing convenience:
+Make all main page content easy to edit in centralized data files or config objects rather than hardcoded everywhere.
+Use reusable content blocks.
+Add comments explaining where to change:
+- phone number
+- email
+- brokerage text
+- CTA text
+- area descriptions
+- testimonials
+- SEO metadata
+- form routing
+
+SEO requirements:
+- Add page titles and meta descriptions for every page
+- Add structured heading hierarchy
+- Add local SEO copy for GTA-focused searches
+- Add internal linking between community pages and core lead pages
+- Add schema-ready structure where possible
+- Create clean URLs
+- Optimize image handling and performance
+- Include placeholder blog/news section structure for future SEO expansion
+
+Design direction:
+- Clean white background with modern accents
+- Premium but approachable
+- Real estate specific styling
+- Strong CTA buttons
+- Great spacing and readable typography
+- Cards for community sections
+- Smooth scroll and polished hover states
+- Mobile responsive navigation
+- Sticky header with CTA button
+- Strong footer
+
+Important UX details:
+- Site must load fast
+- Mobile menu must be clean and simple
+- Forms should be short and easy to complete
+- Add trust-building sections throughout
+- Add click-to-call on mobile
+- Make all important CTAs visible without being overwhelming
+
+Content guidance:
+Write all copy directly in the build. Do not leave everything as lorem ipsum.
+Use realistic, conversion-focused real estate copy.
+Keep tone professional, local, and confident.
+Do not overuse the agent’s personal branding.
+This should feel like a serious GTA home search and lead generation platform.
+
+Include these homepage section ideas:
+- Find homes across the GTA
+- Explore top communities
+- Thinking of selling?
+- Get listings that match your criteria
+- Local guidance without the pressure
+- Start with a quick conversation
+
+Navigation:
+Top navigation should include:
+- Home
+- Search Homes
+- Communities
+- Buyers
+- Sellers
+- Contact
+- Book a Call button
+
+Footer:
+Include:
+- RE/MAX West Realty
+- contact placeholders
+- brokerage/legal disclaimer placeholder
+- privacy policy
+- terms/disclaimer
+- area links
+- social links placeholders
+
+Bonus features to include:
+- Saved favorites UI placeholder for future version
+- Email alerts CTA
+- Mortgage calculator placeholder section
+- “Book a Call” modal or dedicated form
+- Sticky mobile CTA bar
+- Testimonial slider
+- FAQ accordion
+- Lead magnet section such as “Get new GTA listings sent to your inbox”
+
+Deliverables:
+- Fully working front-end site structure
+- Reusable components
+- Responsive pages
+- Form handling setup
+- SEO-ready page structure
+- Easy-to-edit content setup
+- Clean code and comments
+- Deployment-ready project
+
+At the end, also generate:
+1. a short README explaining the project structure
+2. instructions for how to update text and images
+3. instructions for connecting the domain
+4. instructions for connecting Follow Up Boss or webhook forms
+5. instructions for later adding IDX
+
+Make the final result feel like a professional GTA real estate lead generation website that can actually be used as a serious business asset.

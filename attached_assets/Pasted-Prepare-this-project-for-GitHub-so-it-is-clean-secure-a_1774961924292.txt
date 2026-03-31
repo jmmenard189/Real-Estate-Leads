@@ -1,0 +1,250 @@
+Prepare this project for GitHub so it is clean, secure, and easy to maintain long term.
+
+PROJECT NAME:
+mygtahomesearch.com
+
+GOAL:
+Restructure this real estate lead generation website so it is GitHub-ready, production-safe, and scalable for future IDX integration and lead collection.
+
+REQUIREMENTS:
+
+1. CLEAN PROJECT STRUCTURE
+
+Organize the project into folders like this:
+
+/public
+  index.html
+  favicon.ico
+  robots.txt
+  sitemap.xml
+
+/src
+  /components
+  /pages
+  /styles
+  /assets
+
+/config
+  settings.js
+
+/admin (future use)
+
+/api (future use)
+
+/utils
+
+README.md
+.gitignore
+
+Ensure:
+- Files are logically organized
+- No unnecessary duplicate files
+- Clean naming conventions
+
+---
+
+2. CREATE .GITIGNORE FILE
+
+Add a .gitignore file that excludes:
+
+node_modules
+.env
+.env.local
+.env.production
+*.log
+dist
+build
+.DS_Store
+database.db
+
+Never allow secrets to be uploaded to GitHub.
+
+---
+
+3. MOVE ALL SECRETS TO ENV VARIABLES
+
+Remove any hardcoded values such as:
+
+API keys
+Google Maps keys
+IDX credentials
+CRM tokens
+Email credentials
+
+Replace them with:
+
+process.env.VARIABLE_NAME
+
+Expected environment variables:
+
+GOOGLE_MAPS_API_KEY
+FOLLOWUPBOSS_API_KEY
+EMAIL_SERVICE_KEY
+DATABASE_URL
+SESSION_SECRET
+
+Do NOT store keys in the code.
+
+---
+
+4. CREATE README FILE
+
+Generate a professional README.md that includes:
+
+Project Name:
+mygtahomesearch.com
+
+Description:
+A real estate lead generation website focused on GTA cities including Pickering, Ajax, Whitby, Markham, Richmond Hill, and Vaughan.
+
+Features:
+- City landing pages
+- Lead capture forms
+- Property search (future IDX)
+- Mobile responsive layout
+- SEO-optimized structure
+
+Instructions:
+
+How to run locally:
+npm install
+npm start
+
+How to deploy:
+Explain hosting setup
+
+Include:
+
+Project structure overview
+Environment variables needed
+Contact section placeholder
+
+---
+
+5. ADD LANDING PAGE STRUCTURE
+
+Ensure landing pages exist for:
+
+/pickering
+/ajax
+/whitby
+/markham
+/vaughan
+/richmond-hill
+
+Each page should include:
+
+City title
+SEO description
+Lead capture form
+Call-to-action button
+Local content placeholders
+
+These pages must be:
+
+SEO optimized
+Fast loading
+Mobile friendly
+
+---
+
+6. ADD SEO FILES
+
+Generate:
+
+robots.txt
+
+Allow search engines.
+
+Generate:
+
+sitemap.xml
+
+Include:
+
+/
+ /pickering
+ /ajax
+ /whitby
+ /markham
+ /vaughan
+ /richmond-hill
+
+Ensure proper indexing support.
+
+---
+
+7. ADD BASIC SECURITY STRUCTURE
+
+Prepare structure for:
+
+Admin login system (future)
+
+Create:
+
+/admin/login
+
+Protect admin routes.
+
+Add placeholder:
+
+role-based access logic
+
+super_admin
+admin
+editor
+
+---
+
+8. MAKE SITE DEPLOYMENT READY
+
+Ensure:
+
+No broken links
+No unused scripts
+All assets load correctly
+Mobile responsive layout
+Fast page load times
+
+Prepare for:
+
+GitHub deployment
+Hosting platform integration
+
+---
+
+9. PREPARE FOR FUTURE IDX
+
+Create placeholder:
+
+/api/idx
+
+Add documentation comments explaining:
+
+Future IDX integration location.
+
+Do NOT install IDX yet.
+
+---
+
+10. FINAL CHECK
+
+Before finishing:
+
+Verify:
+
+No API keys exposed
+No sensitive data in files
+Clean folder structure
+Working navigation
+Functional landing pages
+
+FINAL RESULT:
+
+A clean, professional real estate website project that:
+
+Is safe to upload to GitHub
+Is easy to maintain
+Supports future IDX integration
+Supports lead generation workflows
+Is structured like a production-level web project

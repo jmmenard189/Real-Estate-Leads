@@ -1,16 +1,15 @@
 /**
  * CRM Abstraction Layer for GTA Home Search
  *
- * This module handles sending leads to external CRM systems.
- * Currently configured for email fallback, but can be connected to:
- * - Follow Up Boss API (see FOLLOW_UP_BOSS section below)
- * - Zapier webhook
- * - Custom webhook endpoint
+ * Dispatches new leads to one or more configured destinations:
+ *   1. Follow Up Boss (if FOLLOW_UP_BOSS_API_KEY is set)
+ *   2. Zapier / custom webhook (if WEBHOOK_URL is set)
+ *   3. Email notification (if NOTIFICATION_EMAIL + EMAIL_USER + EMAIL_PASS are set)
  *
- * HOW TO CONFIGURE:
- * Set the appropriate environment variables in your Replit secrets.
+ * Set environment variables in your Replit Secrets panel.
  */
 
+import nodemailer from "nodemailer";
 import { logger } from "./logger";
 
 export interface LeadData {
@@ -27,19 +26,12 @@ export interface LeadData {
 }
 
 // ============================================================
-// FOLLOW UP BOSS INTEGRATION
-// ============================================================
-// To connect Follow Up Boss:
-// 1. Get your API key from Follow Up Boss > Admin > API
-// 2. Set environment variable: FOLLOW_UP_BOSS_API_KEY=your_api_key
-// 3. Optionally set: FOLLOW_UP_BOSS_SYSTEM=mygtahomesearch
-// Documentation: https://api.followupboss.com/
+// FOLLOW UP BOSS
+// Set: FOLLOW_UP_BOSS_API_KEY
 // ============================================================
 async function sendToFollowUpBoss(lead: LeadData): Promise<boolean> {
   const apiKey = process.env.FOLLOW_UP_BOSS_API_KEY;
-  if (!apiKey) {
-    return false;
-  }
+  if (!apiKey) return false;
 
   try {
     const payload = {
@@ -50,9 +42,7 @@ async function sendToFollowUpBoss(lead: LeadData): Promise<boolean> {
         phones: lead.phone ? [{ value: lead.phone, type: "mobile" }] : [],
         tags: [lead.source, `leadtype-${lead.leadType}`],
       },
-      notes: lead.message
-        ? [{ body: formatLeadNote(lead) }]
-        : [],
+      notes: lead.message ? [{ body: formatLeadNote(lead) }] : [],
     };
 
     const response = await fetch("https://api.followupboss.com/v1/events", {
@@ -78,31 +68,18 @@ async function sendToFollowUpBoss(lead: LeadData): Promise<boolean> {
 }
 
 // ============================================================
-// ZAPIER / WEBHOOK INTEGRATION
-// ============================================================
-// To connect Zapier or a custom webhook:
-// 1. Create a Zap with "Webhooks by Zapier" as the trigger
-// 2. Copy the webhook URL from Zapier
-// 3. Set environment variable: WEBHOOK_URL=https://hooks.zapier.com/hooks/catch/...
-// This also works with Make (Integromat), n8n, or any custom webhook receiver
+// ZAPIER / WEBHOOK
+// Set: WEBHOOK_URL
 // ============================================================
 async function sendToWebhook(lead: LeadData): Promise<boolean> {
   const webhookUrl = process.env.WEBHOOK_URL;
-  if (!webhookUrl) {
-    return false;
-  }
+  if (!webhookUrl) return false;
 
   try {
     const response = await fetch(webhookUrl, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ...lead,
-        timestamp: new Date().toISOString(),
-        site: "mygtahomesearch.com",
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...lead, timestamp: new Date().toISOString(), site: "mygtahomesearch.com" }),
     });
 
     if (!response.ok) {
@@ -119,41 +96,121 @@ async function sendToWebhook(lead: LeadData): Promise<boolean> {
 }
 
 // ============================================================
-// EMAIL NOTIFICATION FALLBACK
-// ============================================================
-// Set environment variable: NOTIFICATION_EMAIL=your@email.com
-// Requires a transactional email service (e.g. SendGrid, Mailgun, Resend)
-// For now this just logs to server console as a fallback
+// EMAIL NOTIFICATION
+// Set: NOTIFICATION_EMAIL (who receives the alert)
+//      EMAIL_USER         (Gmail address you send from)
+//      EMAIL_PASS         (Gmail App Password — 16 chars, no spaces)
+//
+// How to get a Gmail App Password:
+//   1. Go to myaccount.google.com > Security
+//   2. Turn on 2-Step Verification (if not already on)
+//   3. Search "App passwords" in the Google account search bar
+//   4. Create an app password — copy the 16-character code
+//   5. Paste it (without spaces) as EMAIL_PASS in Replit Secrets
 // ============================================================
 async function sendEmailNotification(lead: LeadData): Promise<boolean> {
-  const notificationEmail = process.env.NOTIFICATION_EMAIL;
-  if (!notificationEmail) {
-    // Log the lead to server console as a last resort fallback
+  const to = process.env.NOTIFICATION_EMAIL;
+  const user = process.env.EMAIL_USER;
+  const pass = process.env.EMAIL_PASS;
+
+  if (!to) {
     logger.info(
-      {
-        lead: {
-          name: lead.name,
-          email: lead.email,
-          source: lead.source,
-          leadType: lead.leadType,
-        },
-      },
-      "New lead received (no notification method configured)"
+      { name: lead.name, email: lead.email, source: lead.source, leadType: lead.leadType },
+      "New lead received — set NOTIFICATION_EMAIL to receive email alerts"
     );
-    return true;
+    return false;
   }
 
-  // TODO: Integrate your email service here (Resend, SendGrid, Mailgun, etc.)
-  logger.info(
-    { email: notificationEmail, source: lead.source },
-    "Email notification would be sent (not yet implemented)"
-  );
-  return true;
+  if (!user || !pass) {
+    logger.warn(
+      "NOTIFICATION_EMAIL is set but EMAIL_USER / EMAIL_PASS are missing — cannot send email"
+    );
+    return false;
+  }
+
+  try {
+    const transporter = nodemailer.createTransport({
+      host: process.env.EMAIL_HOST || "smtp.gmail.com",
+      port: Number(process.env.EMAIL_PORT || 587),
+      secure: false,
+      auth: { user, pass },
+    });
+
+    const typeLabel =
+      lead.leadType === "buyer" ? "Buyer" :
+      lead.leadType === "seller" ? "Seller" : "General Inquiry";
+
+    const subject = `New ${typeLabel} Lead — ${lead.name}`;
+
+    const rows = [
+      ["Name", lead.name],
+      ["Email", lead.email],
+      ...(lead.phone ? [["Phone", lead.phone]] : []),
+      ["Lead Type", typeLabel],
+      ["Source", lead.source],
+      ...(lead.areaOfInterest ? [["Area of Interest", lead.areaOfInterest]] : []),
+      ...(lead.timeline ? [["Timeline", lead.timeline]] : []),
+      ...(lead.budget ? [["Budget", lead.budget]] : []),
+      ...(lead.address ? [["Property Address", lead.address]] : []),
+    ] as [string, string][];
+
+    const tableRows = rows
+      .map(([label, value]) =>
+        `<tr>
+          <td style="padding:8px 12px;background:#f8f9fa;font-weight:600;color:#374151;white-space:nowrap;border-bottom:1px solid #e5e7eb;">${label}</td>
+          <td style="padding:8px 12px;color:#111827;border-bottom:1px solid #e5e7eb;">${value}</td>
+        </tr>`
+      )
+      .join("");
+
+    const messageBlock = lead.message
+      ? `<div style="margin-top:20px;padding:16px;background:#f8f9fa;border-left:4px solid #1e3a5f;border-radius:4px;">
+          <p style="margin:0 0 8px;font-weight:600;color:#374151;">Message</p>
+          <p style="margin:0;color:#111827;line-height:1.6;">${lead.message.replace(/\n/g, "<br>")}</p>
+        </div>`
+      : "";
+
+    const html = `
+      <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:600px;margin:0 auto;background:#ffffff;">
+        <div style="background:#1e3a5f;padding:24px 32px;border-radius:8px 8px 0 0;">
+          <h1 style="margin:0;color:#ffffff;font-size:20px;">New Lead — GTA Home Search</h1>
+          <p style="margin:4px 0 0;color:#93c5fd;font-size:14px;">${new Date().toLocaleString("en-CA", { timeZone: "America/Toronto", dateStyle: "full", timeStyle: "short" })}</p>
+        </div>
+        <div style="padding:24px 32px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 8px 8px;">
+          <table style="width:100%;border-collapse:collapse;margin-bottom:8px;">
+            ${tableRows}
+          </table>
+          ${messageBlock}
+          <div style="margin-top:24px;padding-top:16px;border-top:1px solid #e5e7eb;">
+            <a href="mailto:${lead.email}" style="display:inline-block;padding:10px 20px;background:#1e3a5f;color:#ffffff;text-decoration:none;border-radius:6px;font-size:14px;font-weight:600;">Reply to ${lead.name}</a>
+          </div>
+          <p style="margin:16px 0 0;font-size:12px;color:#9ca3af;">This notification was sent from mygtahomesearch.com · <a href="https://mygtahomesearch.com/admin/dashboard" style="color:#9ca3af;">View all leads</a></p>
+        </div>
+      </div>
+    `;
+
+    await transporter.sendMail({
+      from: `"GTA Home Search" <${user}>`,
+      to,
+      subject,
+      html,
+      text: formatLeadNote(lead),
+    });
+
+    logger.info({ to, source: lead.source }, "Email notification sent");
+    return true;
+  } catch (err) {
+    logger.error({ err }, "Failed to send email notification");
+    return false;
+  }
 }
 
 function formatLeadNote(lead: LeadData): string {
   const lines: string[] = [`New lead from ${lead.source}`];
   if (lead.leadType) lines.push(`Type: ${lead.leadType}`);
+  if (lead.name) lines.push(`Name: ${lead.name}`);
+  if (lead.email) lines.push(`Email: ${lead.email}`);
+  if (lead.phone) lines.push(`Phone: ${lead.phone}`);
   if (lead.areaOfInterest) lines.push(`Area of Interest: ${lead.areaOfInterest}`);
   if (lead.address) lines.push(`Property Address: ${lead.address}`);
   if (lead.timeline) lines.push(`Timeline: ${lead.timeline}`);
@@ -163,22 +220,22 @@ function formatLeadNote(lead: LeadData): string {
 }
 
 /**
- * Main function to dispatch a lead to all configured CRM destinations.
- * Tries Follow Up Boss first, then webhook, then email fallback.
+ * Dispatch a lead to all configured destinations.
  */
 export async function dispatchLead(lead: LeadData): Promise<void> {
-  const results = await Promise.allSettled([
+  const [fub, webhook, email] = await Promise.allSettled([
     sendToFollowUpBoss(lead),
     sendToWebhook(lead),
     sendEmailNotification(lead),
   ]);
 
-  const successCount = results.filter(
-    (r) => r.status === "fulfilled" && r.value === true
-  ).length;
-
   logger.info(
-    { source: lead.source, successCount },
-    "Lead dispatched to CRM destinations"
+    {
+      source: lead.source,
+      followUpBoss: fub.status === "fulfilled" ? fub.value : false,
+      webhook: webhook.status === "fulfilled" ? webhook.value : false,
+      email: email.status === "fulfilled" ? email.value : false,
+    },
+    "Lead dispatched"
   );
 }

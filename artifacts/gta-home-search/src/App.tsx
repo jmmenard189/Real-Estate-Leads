@@ -19,6 +19,7 @@ import NotFound from "@/pages/not-found";
 import AdminLogin from "@/pages/admin/AdminLogin";
 import AdminDashboard from "@/pages/admin/AdminDashboard";
 import AdminUsers from "@/pages/admin/AdminUsers";
+import RichmondHillDetached from "@/pages/RichmondHillDetached";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,9 @@ function Router() {
       <Route path="/admin">
         {() => { window.location.replace("/admin/login"); return null; }}
       </Route>
+
+      {/* Standalone landing pages — no Layout */}
+      <Route path="/richmond-hill-detached-homes-900k-1200k" component={RichmondHillDetached} />
 
       {/* Public routes — with Layout */}
       <Route>

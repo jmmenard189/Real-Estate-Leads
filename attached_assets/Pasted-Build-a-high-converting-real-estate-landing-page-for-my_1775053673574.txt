@@ -1,0 +1,231 @@
+Build a high-converting real estate landing page for my website mygtahomesearch.com.
+
+PAGE GOAL:
+Generate buyer leads from Facebook ads for people looking for detached homes in Richmond Hill priced between $900,000 and $1,200,000.
+
+IMPORTANT:
+This is not an IDX search page yet.
+This is a lead generation landing page.
+The main goal is to capture name, email, and phone number.
+The design should feel premium, modern, trustworthy, and conversion-focused.
+Target audience is buyers in the GTA looking for detached homes in Richmond Hill.
+This page must work great on mobile first because most Facebook traffic will be mobile.
+
+PAGE URL:
+Create this as a dedicated landing page, something like:
+/richmond-hill-detached-homes-900k-1200k
+
+BRANDING:
+Use my existing site branding from mygtahomesearch.com.
+Keep it clean, professional, and modern.
+Do not make it feel cluttered.
+No distracting navigation links at the top.
+Reduce header navigation so visitors stay focused on submitting the form.
+Use a sticky call-to-action button on mobile.
+
+HERO SECTION:
+Create a strong hero section with this type of messaging:
+
+Headline:
+Richmond Hill Detached Homes from $900K to $1.2M
+
+Subheadline:
+See available detached homes in Richmond Hill and get a private list of matching properties sent directly to you.
+
+CTA button:
+Get The List
+
+Also include a short form above the fold with these fields:
+First Name
+Email
+Phone
+Ideal Timeline (ASAP, 3 Months, 6 Months, Just Browsing)
+
+Button text:
+Send Me The Homes
+
+Include a trust line under the button:
+By submitting, you agree to be contacted about available homes in Richmond Hill.
+
+HERO IMAGE:
+Use a premium-looking Richmond Hill / upscale detached home style background image or section image.
+Make it feel aspirational but still realistic.
+
+PAGE STRUCTURE:
+Build the page in this order:
+
+1. Hero section with lead form
+2. Why buyers like Richmond Hill
+3. Example home cards
+4. Benefits of registering
+5. Second lead capture section
+6. FAQ section
+7. Final CTA section
+
+SECTION 2: WHY BUY IN RICHMOND HILL
+Add a clean content block explaining why Richmond Hill is attractive.
+Mention things like:
+family-friendly neighborhoods
+good schools
+parks and green space
+access to highways and transit
+desirable detached housing options
+strong community feel
+Keep this SEO friendly but natural and readable.
+
+SECTION 3: EXAMPLE LISTINGS
+Since there is no IDX yet, create a section with 6 sample detached home cards.
+These are placeholder/sample property cards only.
+Each card should include:
+photo
+price
+bedrooms
+bathrooms
+short location line
+short description
+button: Request Full Details
+
+IMPORTANT:
+The cards should look real and polished, but when someone clicks the button, it should open the lead form or scroll to the form.
+Do not show full fake listing details that could create legal issues.
+Label this section in a compliant way such as:
+Sample Homes Matching Your Search
+or
+Examples of Detached Homes in This Price Range
+
+SECTION 4: WHY REGISTER
+Create a section with benefit boxes such as:
+Get new matching listings faster
+Access off-market and coming soon opportunities
+Save time by seeing homes that match your budget
+Get local guidance on Richmond Hill neighborhoods
+Book private showings quickly
+
+SECTION 5: SECOND LEAD FORM
+Add another lead capture section mid-page with headline:
+Want the Full Richmond Hill Detached Home List?
+
+Subheadline:
+Get current detached homes in the $900K to $1.2M range sent directly to your inbox.
+
+Fields:
+First Name
+Email
+Phone
+Are You Renting or Owning?
+Timeline
+
+Button:
+Get My List
+
+SECTION 6: FAQ
+Add 5 useful FAQs for conversion and SEO:
+
+Examples:
+Are there detached homes available in Richmond Hill between $900K and $1.2M?
+How quickly do homes in this price range sell?
+Can I book a private showing?
+Can I get alerts for new Richmond Hill listings?
+Do I need mortgage pre-approval before viewing homes?
+
+Keep answers short and reassuring.
+
+SECTION 7: FINAL CTA
+Create a strong closing section with:
+Headline:
+Get Richmond Hill Detached Homes Sent To You
+
+Subheadline:
+Register now to receive updated home matches in your price range.
+
+Form with:
+Name
+Email
+Phone
+
+Button:
+Send Me Listings
+
+LEAD CAPTURE / CRM:
+Make every form send leads into the site backend in a clean structure.
+Prepare the form so it can later connect to Follow Up Boss.
+Each lead submission should store:
+name
+email
+phone
+timeline
+property interest = Richmond Hill Detached 900k to 1.2M
+source = Facebook Ad
+page URL
+submission timestamp
+
+Also create a hidden field for:
+campaign = richmond-hill-detached-900k-1200k-facebook
+
+THANK YOU EXPERIENCE:
+After form submission:
+show a thank you success message
+tell the user someone will be in touch shortly
+optionally redirect to a thank you page
+
+THANK YOU MESSAGE EXAMPLE:
+Thanks! Your Richmond Hill detached home list request has been received. We’ll be in touch shortly with matching properties.
+
+DESIGN REQUIREMENTS:
+Make the page feel premium and high-converting.
+Use clean spacing, modern sections, strong typography, and clear CTA buttons.
+Use card layouts, light shadows, rounded corners, and an upscale real estate feel.
+Optimize for fast load speed.
+Make sure mobile layout is excellent.
+Use sticky CTA on mobile.
+Add subtle urgency without sounding spammy.
+
+CONVERSION REQUIREMENTS:
+Use multiple CTA buttons throughout the page.
+Every main section should lead back to the form.
+Buttons should scroll to form or open a modal form.
+Use action-oriented button text:
+Get The List
+Request Details
+See Matching Homes
+Send Me Listings
+
+SEO REQUIREMENTS:
+Set SEO title:
+Richmond Hill Detached Homes $900K to $1.2M | My GTA Home Search
+
+Set meta description:
+Browse Richmond Hill detached homes from $900,000 to $1.2M. Register to receive matching listings, property updates, and private showing opportunities.
+
+Use proper H1, H2, and H3 structure.
+Include natural keyword phrases like:
+Richmond Hill detached homes
+detached homes in Richmond Hill
+Richmond Hill homes for sale 900k to 1.2M
+Richmond Hill real estate
+
+COMPLIANCE / CONTENT SAFETY:
+Do not claim MLS or IDX access if it is not connected yet.
+Do not present fake listings as active verified listings.
+Use sample listings clearly as examples.
+Keep language professional and trustworthy.
+
+BONUS FEATURES:
+Add testimonial placeholders
+Add simple trust badges such as:
+Local Market Knowledge
+Fast Home Alerts
+Private Showings Available
+
+TECH REQUIREMENTS:
+Build it cleanly so I can duplicate this page later for:
+Pickering
+Ajax
+Whitby
+Markham
+Vaughan
+
+Make the city, price range, property type, and ad source easy to swap out later.
+
+FINAL GOAL:
+This page should be built to convert Facebook traffic into buyer leads with a premium GTA real estate feel, even without IDX.

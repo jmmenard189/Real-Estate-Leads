@@ -80,6 +80,13 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Facebook Ad Landing Pages -->
+  <url>
+    <loc>https://mygtahomesearch.com/richmond-hill-detached-homes-900k-1200k</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Legal pages -->
   <url>
     <loc>https://mygtahomesearch.com/privacy</loc>

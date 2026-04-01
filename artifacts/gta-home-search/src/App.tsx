@@ -16,25 +16,42 @@ import CommunitiesIndex from "@/pages/CommunitiesIndex";
 import CommunityDetail from "@/pages/CommunityDetail";
 import NotFound from "@/pages/not-found";
 
+import AdminLogin from "@/pages/admin/AdminLogin";
+import AdminDashboard from "@/pages/admin/AdminDashboard";
+import AdminUsers from "@/pages/admin/AdminUsers";
+
 const queryClient = new QueryClient();
 
 function Router() {
   return (
-    <Layout>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/search" component={Search} />
-        <Route path="/buyers" component={Buyers} />
-        <Route path="/sellers" component={Sellers} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/about" component={About} />
-        <Route path="/privacy" component={Privacy} />
-        <Route path="/terms" component={Terms} />
-        <Route path="/communities" component={CommunitiesIndex} />
-        <Route path="/communities/:slug" component={CommunityDetail} />
-        <Route component={NotFound} />
-      </Switch>
-    </Layout>
+    <Switch>
+      {/* Admin routes — no Layout wrapper */}
+      <Route path="/admin/login" component={AdminLogin} />
+      <Route path="/admin/dashboard" component={AdminDashboard} />
+      <Route path="/admin/users" component={AdminUsers} />
+      <Route path="/admin">
+        {() => { window.location.replace("/admin/login"); return null; }}
+      </Route>
+
+      {/* Public routes — with Layout */}
+      <Route>
+        <Layout>
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/search" component={Search} />
+            <Route path="/buyers" component={Buyers} />
+            <Route path="/sellers" component={Sellers} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/about" component={About} />
+            <Route path="/privacy" component={Privacy} />
+            <Route path="/terms" component={Terms} />
+            <Route path="/communities" component={CommunitiesIndex} />
+            <Route path="/communities/:slug" component={CommunityDetail} />
+            <Route component={NotFound} />
+          </Switch>
+        </Layout>
+      </Route>
+    </Switch>
   );
 }
 

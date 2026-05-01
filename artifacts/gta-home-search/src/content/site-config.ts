@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "GTA Home Search",
   url: "https://mygtahomesearch.com",
-  description: "Your trusted resource for buying and selling homes across the Greater Toronto Area.",
+  description: "A home search resource for buyers and sellers across the Greater Toronto Area. Simple home search. Local market insight. Helpful real estate guidance.",
   // BROKERAGE: Add your brokerage name here when ready
   brokerage: "",
   // CONTACT: Update phone and email before going live

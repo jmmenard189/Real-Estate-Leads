@@ -1,0 +1,69 @@
+BRANDING / COMPLIANCE UPDATE
+
+The site should be mostly unbranded and feel like a clean public home-search resource, not a personal agent vanity site.
+
+Brokerage compliance:
+Jean-Michel Menard is registered with:
+
+RE/MAX West Realty Inc., Brokerage
+
+Use only the minimum required RECO/TRREB brokerage disclosure.
+
+Do not over-brand the website with Jean-Michel’s name everywhere.
+Do not make the site look like a personal agent website.
+Do not use heavy RE/MAX branding unless legally required.
+Do not claim to be an official MLS, TRREB, or RECO website.
+
+Footer must include clear brokerage disclosure:
+“Jean-Michel Menard, Sales Representative, RE/MAX West Realty Inc., Brokerage.”
+
+Also include:
+“Not intended to solicit buyers or sellers currently under contract.”
+
+Where required, include:
+“Listing information deemed reliable but not guaranteed and should be independently verified.”
+
+Tone:
+Clean, neutral, search-focused, consumer-friendly.
+
+Replace personal positioning language:
+Instead of:
+“Fast communication. Aggressive marketing. Strong follow-up.”
+
+Use:
+“Simple home search. Local market insight. Helpful real estate guidance.”
+
+CTA language:
+Use neutral CTAs:
+- Search Homes
+- Get Home Value
+- Request Market Update
+- Book a Call
+
+Homepage hero should become:
+“Search Homes Across Pickering and the GTA”
+
+Subheadline:
+“Explore homes, compare local markets, and request helpful real estate guidance when you need it.”
+
+Schema:
+Still include RealEstateAgent / LocalBusiness schema only where appropriate, using:
+Jean-Michel Menard
+RE/MAX West Realty Inc., Brokerage
+
+Do not add fake reviews, fake awards, or inflated claims.
+Do not add “top agent” language unless manually provided and compliance-approved.
+
+Lead forms:
+Keep forms simple and neutral.
+Required fields:
+- Name
+- Email
+Optional:
+- Phone
+- Address for home value requests
+
+All forms should include a consent line:
+“By submitting this form, you agree to be contacted about your inquiry.”
+
+Update every page, footer, CTA, metadata, and schema to follow this unbranded/compliance-first direction.
